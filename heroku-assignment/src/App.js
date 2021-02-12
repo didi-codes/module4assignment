@@ -3,7 +3,7 @@ import Acts from './img/acts.png';
 import './App.css';
 
 function url(path) {
-  return process.env.MODE_ENV === 'development'
+  return process.env.NODE_ENV === 'development'
     ? `http://localhost:3101${path}`
     : path;
 }
@@ -11,9 +11,9 @@ function url(path) {
 function App() {
   const [data, setData] = useState('');
   useEffect(() => {
-    fetch(url('/api/*'))
-      .then((res) => res.json())
-      .then((apiData) => setData(apiData.data));
+    fetch(url("/api/"))
+      .then(res => res.json())
+      .then(apiData => setData(apiData.data));
   }, []);
   return (
     <div className='App'>

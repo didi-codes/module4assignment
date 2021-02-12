@@ -4,10 +4,10 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 9000;
 
 app.use(cors());
-app.use(express.json);
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/api/*', (_, res) => {
